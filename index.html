@@ -1,151 +1,265 @@
-import { useState } from 'react'
-import { ChevronRight, Star, Shield, Brain, Youtube } from "lucide-react"
-
-export default function LandingPage() {
-  const [isHovered, setIsHovered] = useState(false)
-
-  return (
-    <div className="min-vh-100 bg-dark text-white">
-      <header className="container py-4 d-flex justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
-          <Shield className="me-2" style={{ width: '32px', height: '32px', color: '#6f42c1' }} />
-          <span className="h4 mb-0">Neurolock AI</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurolock AI - Trustworthiness Ratings for YouTube Creators</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(to bottom, #1a202c, #2d3748);
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 20px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #805ad5;
+            color: #ffffff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #6b46c1;
+        }
+        .features {
+            padding: 60px 0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            background-color: #2d3748;
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .how-it-works {
+            padding: 60px 0;
+        }
+        .how-it-works-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .steps {
+            flex: 1;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .step-number {
+            background-color: #805ad5;
+            color: #ffffff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .image-placeholder {
+            flex: 1;
+            background-color: #4a5568;
+            height: 300px;
+            border-radius: 5px;
+        }
+        .testimonials {
+            padding: 60px 0;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background-color: #2d3748;
+            padding: 30px;
+            border-radius: 5px;
+        }
+        .stars {
+            color: #ecc94b;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        footer {
+            background-color: #1a202c;
+            text-align: center;
+            padding: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .how-it-works-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Neurolock AI</div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How it works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-          <ul className="nav">
-            <li className="nav-item">
-              <a href="#features" className="nav-link text-white">Features</a>
-            </li>
-            <li className="nav-item">
-              <a href="#how-it-works" className="nav-link text-white">How it works</a>
-            </li>
-            <li className="nav-item">
-              <a href="#testimonials" className="nav-link text-white">Testimonials</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+    </header>
 
-      <main>
-        <section className="container py-5 text-center">
-          <h1 className="display-4 mb-4">Trust Your YouTube Experience</h1>
-          <p className="lead mb-4">
-            Neurolock AI uses advanced artificial intelligence to evaluate YouTube creators and provide trustworthiness ratings, helping you make informed decisions about the content you consume.
-          </p>
-          <button 
-            className="btn btn-lg btn-primary"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            Add to Chrome
-            <ChevronRight className={`ms-2 ${isHovered ? 'translate-x-1' : ''}`} />
-          </button>
-        </section>
-
-        <section id="features" className="container py-5">
-          <h2 className="h3 mb-4 text-center">Key Features</h2>
-          <div className="row">
-            <FeatureCard
-              icon={<Brain style={{ width: '48px', height: '48px', color: '#6f42c1' }} />}
-              title="AI-Powered Analysis"
-              description="Our advanced AI algorithms analyze video content, speech patterns, and historical data to provide accurate trustworthiness ratings."
-            />
-            <FeatureCard
-              icon={<Youtube style={{ width: '48px', height: '48px', color: '#6f42c1' }} />}
-              title="Seamless YouTube Integration"
-              description="Ratings appear directly on YouTube pages, allowing you to make informed decisions without interrupting your browsing experience."
-            />
-            <FeatureCard
-              icon={<Shield style={{ width: '48px', height: '48px', color: '#6f42c1' }} />}
-              title="Privacy Focused"
-              description="We prioritize your privacy. All analysis is done locally, ensuring your viewing habits remain confidential."
-            />
-          </div>
-        </section>
-
-        <section id="how-it-works" className="container py-5">
-          <h2 className="h3 mb-4 text-center">How It Works</h2>
-          <div className="row align-items-center">
-            <div className="col-md-6">
-              <ol className="list-unstyled">
-                <li className="d-flex align-items-center mb-3">
-                  <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', color: 'white' }}>1</div>
-                  <span className="ms-3">Install the Neurolock AI Chrome extension</span>
-                </li>
-                <li className="d-flex align-items-center mb-3">
-                  <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', color: 'white' }}>2</div>
-                  <span className="ms-3">Browse YouTube as you normally would</span>
-                </li>
-                <li className="d-flex align-items-center mb-3">
-                  <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', color: 'white' }}>3</div>
-                  <span className="ms-3">See trustworthiness ratings next to video thumbnails and on channel pages</span>
-                </li>
-                <li className="d-flex align-items-center mb-3">
-                  <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', color: 'white' }}>4</div>
-                  <span className="ms-3">Make informed decisions about the content you choose to watch</span>
-                </li>
-              </ol>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Trust Your YouTube Experience</h1>
+                <p>Neurolock AI uses advanced artificial intelligence to evaluate YouTube creators and provide trustworthiness ratings, helping you make informed decisions about the content you consume.</p>
+                <a href="#" class="cta-button">Add to Chrome</a>
             </div>
-            <div className="col-md-6">
-              <div className="bg-secondary p-3 rounded">
-                <img src="/placeholder.svg?height=300&width=400" alt="Neurolock AI in action" className="img-fluid rounded" />
-              </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>AI-Powered Analysis</h3>
+                        <p>Our advanced AI algorithms analyze video content, speech patterns, and historical data to provide accurate trustworthiness ratings.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📺</div>
+                        <h3>Seamless YouTube Integration</h3>
+                        <p>Ratings appear directly on YouTube pages, allowing you to make informed decisions without interrupting your browsing experience.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Privacy Focused</h3>
+                        <p>We prioritize your privacy. All analysis is done locally, ensuring your viewing habits remain confidential.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </section>
 
-        <section id="testimonials" className="container py-5">
-          <h2 className="h3 mb-4 text-center">What Our Users Say</h2>
-          <div className="row">
-            <TestimonialCard
-              quote="Neurolock AI has completely transformed how I consume content on YouTube. I feel more confident in the information I'm receiving."
-              author="Sarah K., Journalist"
-            />
-            <TestimonialCard
-              quote="As an educator, I appreciate the ability to quickly assess the credibility of educational content. Neurolock AI is an invaluable tool."
-              author="Dr. James L., Professor"
-            />
-          </div>
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="how-it-works-content">
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <p>Install the Neurolock AI Chrome extension</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <p>Browse YouTube as you normally would</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <p>See trustworthiness ratings next to video thumbnails and on channel pages</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <p>Make informed decisions about the content you choose to watch</p>
+                        </div>
+                    </div>
+                    <div class="image-placeholder"></div>
+                </div>
+            </div>
         </section>
-      </main>
 
-      <footer className="bg-dark py-4">
-        <div className="container text-center">
-          <p>&copy; 2024 Neurolock AI. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
-  )
-}
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>What Our Users Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Neurolock AI has completely transformed how I consume content on YouTube. I feel more confident in the information I'm receiving."</p>
+                        <p>- Sarah K., Journalist</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"As an educator, I appreciate the ability to quickly assess the credibility of educational content. Neurolock AI is an invaluable tool."</p>
+                        <p>- Dr. James L., Professor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-function FeatureCard({ icon, title, description }) {
-  return (
-    <div className="col-md-4 mb-4">
-      <div className="card bg-dark text-white border-0">
-        <div className="card-body">
-          <div className="mb-3">{icon}</div>
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{description}</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Neurolock AI. All rights reserved.</p>
         </div>
-      </div>
-    </div>
-  )
-}
-
-function TestimonialCard({ quote, author }) {
-  return (
-    <div className="col-md-6 mb-4">
-      <div className="card bg-dark text-white border-0">
-        <div className="card-body">
-          <div className="d-flex mb-3">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="me-1" style={{ width: '20px', height: '20px', color: '#ffc107' }} />
-            ))}
-          </div>
-          <p className="card-text mb-3"><em>"{quote}"</em></p>
-          <p className="card-text">- {author}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
+    </footer>
+</body>
+</html>
