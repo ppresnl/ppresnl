@@ -1,1 +1,151 @@
-hello world
+import { useState } from 'react'
+import { ChevronRight, Star, Shield, Brain, Youtube } from "lucide-react"
+
+export default function LandingPage() {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
+    <div className="min-vh-100 bg-dark text-white">
+      <header className="container py-4 d-flex justify-content-between align-items-center">
+        <div className="d-flex align-items-center">
+          <Shield className="me-2" style={{ width: '32px', height: '32px', color: '#6f42c1' }} />
+          <span className="h4 mb-0">Neurolock AI</span>
+        </div>
+        <nav>
+          <ul className="nav">
+            <li className="nav-item">
+              <a href="#features" className="nav-link text-white">Features</a>
+            </li>
+            <li className="nav-item">
+              <a href="#how-it-works" className="nav-link text-white">How it works</a>
+            </li>
+            <li className="nav-item">
+              <a href="#testimonials" className="nav-link text-white">Testimonials</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section className="container py-5 text-center">
+          <h1 className="display-4 mb-4">Trust Your YouTube Experience</h1>
+          <p className="lead mb-4">
+            Neurolock AI uses advanced artificial intelligence to evaluate YouTube creators and provide trustworthiness ratings, helping you make informed decisions about the content you consume.
+          </p>
+          <button 
+            className="btn btn-lg btn-primary"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            Add to Chrome
+            <ChevronRight className={`ms-2 ${isHovered ? 'translate-x-1' : ''}`} />
+          </button>
+        </section>
+
+        <section id="features" className="container py-5">
+          <h2 className="h3 mb-4 text-center">Key Features</h2>
+          <div className="row">
+            <FeatureCard
+              icon={<Brain style={{ width: '48px', height: '48px', color: '#6f42c1' }} />}
+              title="AI-Powered Analysis"
+              description="Our advanced AI algorithms analyze video content, speech patterns, and historical data to provide accurate trustworthiness ratings."
+            />
+            <FeatureCard
+              icon={<Youtube style={{ width: '48px', height: '48px', color: '#6f42c1' }} />}
+              title="Seamless YouTube Integration"
+              description="Ratings appear directly on YouTube pages, allowing you to make informed decisions without interrupting your browsing experience."
+            />
+            <FeatureCard
+              icon={<Shield style={{ width: '48px', height: '48px', color: '#6f42c1' }} />}
+              title="Privacy Focused"
+              description="We prioritize your privacy. All analysis is done locally, ensuring your viewing habits remain confidential."
+            />
+          </div>
+        </section>
+
+        <section id="how-it-works" className="container py-5">
+          <h2 className="h3 mb-4 text-center">How It Works</h2>
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <ol className="list-unstyled">
+                <li className="d-flex align-items-center mb-3">
+                  <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', color: 'white' }}>1</div>
+                  <span className="ms-3">Install the Neurolock AI Chrome extension</span>
+                </li>
+                <li className="d-flex align-items-center mb-3">
+                  <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', color: 'white' }}>2</div>
+                  <span className="ms-3">Browse YouTube as you normally would</span>
+                </li>
+                <li className="d-flex align-items-center mb-3">
+                  <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', color: 'white' }}>3</div>
+                  <span className="ms-3">See trustworthiness ratings next to video thumbnails and on channel pages</span>
+                </li>
+                <li className="d-flex align-items-center mb-3">
+                  <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '32px', height: '32px', color: 'white' }}>4</div>
+                  <span className="ms-3">Make informed decisions about the content you choose to watch</span>
+                </li>
+              </ol>
+            </div>
+            <div className="col-md-6">
+              <div className="bg-secondary p-3 rounded">
+                <img src="/placeholder.svg?height=300&width=400" alt="Neurolock AI in action" className="img-fluid rounded" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials" className="container py-5">
+          <h2 className="h3 mb-4 text-center">What Our Users Say</h2>
+          <div className="row">
+            <TestimonialCard
+              quote="Neurolock AI has completely transformed how I consume content on YouTube. I feel more confident in the information I'm receiving."
+              author="Sarah K., Journalist"
+            />
+            <TestimonialCard
+              quote="As an educator, I appreciate the ability to quickly assess the credibility of educational content. Neurolock AI is an invaluable tool."
+              author="Dr. James L., Professor"
+            />
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-dark py-4">
+        <div className="container text-center">
+          <p>&copy; 2024 Neurolock AI. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+function FeatureCard({ icon, title, description }) {
+  return (
+    <div className="col-md-4 mb-4">
+      <div className="card bg-dark text-white border-0">
+        <div className="card-body">
+          <div className="mb-3">{icon}</div>
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{description}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function TestimonialCard({ quote, author }) {
+  return (
+    <div className="col-md-6 mb-4">
+      <div className="card bg-dark text-white border-0">
+        <div className="card-body">
+          <div className="d-flex mb-3">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="me-1" style={{ width: '20px', height: '20px', color: '#ffc107' }} />
+            ))}
+          </div>
+          <p className="card-text mb-3"><em>"{quote}"</em></p>
+          <p className="card-text">- {author}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
