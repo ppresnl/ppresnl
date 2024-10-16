@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/ppresnl/static/js/main.db6f330f.js",
+    "main.css": "/ppresnl/static/css/main.ca320c1d.css",
+    "main.js": "/ppresnl/static/js/main.40595731.js",
     "index.html": "/ppresnl/index.html",
-    "main.db6f330f.js.map": "/ppresnl/static/js/main.db6f330f.js.map"
+    "main.ca320c1d.css.map": "/ppresnl/static/css/main.ca320c1d.css.map",
+    "main.40595731.js.map": "/ppresnl/static/js/main.40595731.js.map"
   },
   "entrypoints": [
-    "static/js/main.db6f330f.js"
+    "static/css/main.ca320c1d.css",
+    "static/js/main.40595731.js"
   ]
 }
